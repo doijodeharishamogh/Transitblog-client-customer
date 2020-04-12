@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import Addpost from './addpost'
 
-export class home extends Component {
+export class Blogs extends Component {
 
     constructor(props) {
         super(props)
@@ -30,7 +30,7 @@ export class home extends Component {
                     <div key = {post.id} className = 'post card hoverable'>
                         <div className = 'card-content'>
                             <span className = 'card-title'>{post.title}</span>
-                            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                            <a className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></a>
                             <p className = 'flow-text'>{post.body}</p>
                         </div>
                     </div>
@@ -42,11 +42,11 @@ export class home extends Component {
         return (
             <div>
                 <br/>
-                <div class="row">
-                    <div class="col s9 ">
+                <div className="row">
+                    <div className="col s9 ">
                         {postList}    
                     </div>
-                    <div class="col s3 ">
+                    <div className="col s3 ">
                     <Addpost />
                     </div>
                 </div>                    
@@ -55,6 +55,5 @@ export class home extends Component {
     }
 }
 
-export default home
+export default Blogs
 
-    

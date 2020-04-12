@@ -4,22 +4,22 @@ function addpost() {
     return (
         <div>
             <h4>Add new post</h4>
-            <div class="row">
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="title" type="text" class="validate"/>
-                            <label for="title" className = 'active'>Title</label>
+            <div className="row">
+                <form className="col s12">
+                    <div className="row">
+                        <div className="input-field col s12">
+                            <input id="title" type="text" className="validate"/>
+                            <label htmlFor="title" className = 'active'>Title</label>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                        <textarea id="textarea2" class="materialize-textarea" rows="5"></textarea>
-                        <label for="textarea2" className = 'active'>Description</label>
+                    <div className="row">
+                        <div className="input-field col s12">
+                        <textarea id="textarea2" className="materialize-textarea" rows="5"></textarea>
+                        <label htmlFor="textarea2" className = 'active'>Description</label>
                         </div>
                     </div>
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                        <i class="material-icons right">send</i>
+                    <button className="btn waves-effect waves-light" type="submit" name="action">Submit
+                        <i className="material-icons right">send</i>
                     </button>
                 </form>
             </div>
