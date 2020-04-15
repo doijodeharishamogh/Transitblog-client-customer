@@ -13,12 +13,30 @@ export class Blogs extends Component {
     }
     
     componentDidMount(){
-        axios.get('https://jsonplaceholder.typicode.com/posts')
+        axios.get(process.env.REACT_APP_baseAPIURL+'/api/blogs')
         .then(res => {
-            console.log(res)
             this.setState({
-                posts: res.data.slice(0,20)
+                posts: res.data
             })
+        })
+    }
+
+    delete(_id){
+        return fetch(process.env.REACT_APP_baseAPIURL+'/api/blogs/'+_id, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+              }
+            }).then(res => {
+            if(res.status === 200){
+                window.location.reload(false);
+            }else{
+                console.log(res)
+                const error = new Error(res.error);
+                throw error;
+            }
+        }).catch(err => {
+            console.error(err);
         })
     }
 
@@ -27,11 +45,11 @@ export class Blogs extends Component {
         const postList = posts.length ? (
             posts.map(post => {
                 return (
-                    <div key = {post.id} className = 'post card hoverable'>
+                    <div key = {post._id} className = 'post card hoverable'>
                         <div className = 'card-content'>
-                            <span className = 'card-title'>{post.title}</span>
-                            <a className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></a>
-                            <p className = 'flow-text'>{post.body}</p>
+                            <span className = 'card-title'>{post.name}</span>
+                            <button className="btn-floating halfway-fab waves-effect waves-light red" onClick ={() => this.delete(post._id)} ><i className="material-icons">delete</i></button>
+                            <p className = 'flow-text'>{post.text}</p>
                         </div>
                     </div>
                 )
