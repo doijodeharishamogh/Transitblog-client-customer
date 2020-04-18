@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
+import axios from 'axios'
 
 export class login extends Component {
 
@@ -11,36 +12,68 @@ export class login extends Component {
             password: ''
         }
     }
-    
-    
-    handleInputChange = (event) => {
+        
+      handleInputChange = (event) => {
         const { value, name } = event.target;
         this.setState({
           [name]: value
         });
       }
 
-      onSubmit = (event) => {
+      setAuthToken (token){
+        if (token) {
+          axios.defaults.headers.common['x-auth-token'] = token;
+          localStorage.setItem('token',token)
+        } else {
+          delete axios.defaults.headers.common['x-auth-token'];
+        }
+      }
+
+      onSubmit = async (event) => {
         event.preventDefault();
-        fetch(process.env.REACT_APP_baseAPIURL+'/api/auth', {
-          method: 'POST',
-          body: JSON.stringify(this.state),
+        const config = {
           headers: {
             'Content-Type': 'application/json'
           }
-        })
-        .then(res => {
-          if (res.status === 200) {
-            this.props.history.push('/');
-          } else {
-            const error = new Error(res.error);
-            throw error;
+        }
+        
+        const body = JSON.stringify(this.state)
+
+        try {
+          const res = await axios.post(process.env.REACT_APP_baseAPIURL+'/api/auth', body, config)
+          this.setAuthToken(res.data.token)
+          this.props.history.push('/')
+        }
+        catch (err) {
+          const errors = err.response.data.errors
+          if (errors) {
+            console.error(err);
+            alert('Error logging in please try again');
           }
-        })
-        .catch(err => {
-          console.error(err);
-          alert('Error logging in please try again');
-        });
+        }
+        // fetch(process.env.REACT_APP_baseAPIURL+'/api/auth', {
+        //   method: 'POST',
+        //   body: JSON.stringify(this.state),
+        //   headers: {
+        //     'Content-Type': 'application/json'
+        //   }
+        // })
+        // .then(res => {
+        //   if (res.status === 200) {
+        //     //localStorage.setItem('token', res.data.token)
+        //     alert("hello")
+        //     console.log(res.data.token)
+        //     alert(res.data.token)
+        //     //this.props.history.push('/');
+        //   } else {
+        //     const error = new Error(res.error);
+        //     throw error;
+        //   }
+        // })
+        // .catch(err => {
+        //   console.error(err);
+        //   alert('Error logging in please try again');
+        // });
       }
 
     render() {

@@ -27,12 +27,14 @@ export class addcomment extends Component {
         body: JSON.stringify(this.state),
         headers: {
           'Content-Type': 'application/json',
+          'x-auth-token': `${localStorage.getItem('token')}`
         },
       }
     )
       .then((res) => {
         if (res.status === 200) {
-          this.props.history.push('/')
+          window.location.reload(false)
+          //this.props.history.push('/')
         } else {
           console.log(res)
           const error = new Error(res.error)

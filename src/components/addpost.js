@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 export class addpost extends Component {
 
@@ -26,7 +27,8 @@ export class addpost extends Component {
             method: 'POST',
             body: JSON.stringify(this.state),
             headers: {
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
+              'x-auth-token': `${localStorage.getItem('token')}`
             }
           }).then(res => {
             if(res.status === 200){
@@ -39,9 +41,47 @@ export class addpost extends Component {
         }).catch(err => {
             console.error(err);
           });
-    }
+        // const config = {
+        //     headers: {
+        //       'Content-Type': 'application/json',
+        //       'x-auth-token': `${localStorage.getItem('token')}`
+        //     }
+        //   }
+          
+        // const body = JSON.stringify(this.state)
+        
+        // try{
+        //     const res = await axios.post(process.env.REACT_APP_baseAPIURL+'/api/blogs/addorupdate', body, config)
+        //     window.location.reload(false)
+        // }catch (err) {
+        //     const errors = err.response.data.errors
+        //     if (errors) {
+        //       console.error(err);
+        //       alert('Error logging in please try again');
+        //     }
+        // }
+        //   }
 
-    render() {
+        // return fetch(process.env.REACT_APP_baseAPIURL+'/api/blogs/addorupdate', {
+        //     method: 'POST',
+        //     body: JSON.stringify(this.state),
+        //     headers: {
+        //       'Content-Type': 'application/json'
+        //     }
+        //   }).then(res => {
+        //     if(res.status === 200){
+        //         this.props.history.push('/');
+        //     }else{
+        //         console.log(res)
+        //         const error = new Error(res.error);
+        //         throw error;
+        //     }
+        // }).catch(err => {
+        //     console.error(err);
+        //   });
+        }
+
+    render(){
         return (
             <div>
                 <h4>Add new post</h4>

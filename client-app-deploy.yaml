@@ -13,6 +13,6 @@ spec:
         app: todo-client-app
     spec:
       containers:
-      - image: doijoy46/todo-client-kubernetes-app:v4
+      - image: doijoy46/csye6225client:v8
         name: container1
         imagePullPolicy: IfNotPresent

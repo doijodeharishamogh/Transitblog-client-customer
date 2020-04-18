@@ -8,7 +8,7 @@ COPY ./public ./public
 
 COPY ./src ./src
 
-ENV REACT_APP_baseAPIURL=http://192.168.99.109:32272
+ENV REACT_APP_baseAPIURL=http://a8454f258d02f403c88b7ae8f38a15f1-1819828245.us-west-2.elb.amazonaws.com:5000
 
 RUN npm install
 
