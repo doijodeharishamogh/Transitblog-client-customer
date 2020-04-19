@@ -5,7 +5,7 @@ function navbar() {
   return (
     <nav>
       <div className='nav-wrapper red darken-3'>
-        <a className='brand-logo center'>
+        <a href='/' className='brand-logo center'>
           <i className='large material-icons'>flight</i>
           <span>Transit-Blog</span>
         </a>

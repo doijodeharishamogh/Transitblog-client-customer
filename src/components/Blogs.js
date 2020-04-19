@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import Addpost from './addpost'
 import { Link } from 'react-router-dom'
-import { Redirect } from 'react-router-dom'
 
 export class Blogs extends Component {
   constructor(props) {
@@ -26,7 +25,7 @@ export class Blogs extends Component {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        'x-auth-token': `${localStorage.getItem('token')}`
+        'x-auth-token': `${localStorage.getItem('token')}`,
       },
     })
       .then((res) => {

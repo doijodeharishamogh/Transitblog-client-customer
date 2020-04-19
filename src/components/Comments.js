@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Addcomment from './addcomment'
-import { useParams } from 'react-router-dom'
 
 export class Comments extends Component {
   constructor(props) {
@@ -31,7 +30,7 @@ export class Comments extends Component {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        'x-auth-token': `${localStorage.getItem('token')}`
+        'x-auth-token': `${localStorage.getItem('token')}`,
       },
     })
       .then((res) => {
