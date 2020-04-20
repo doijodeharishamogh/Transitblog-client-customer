@@ -13,11 +13,11 @@ spec:
         app: todo-client-app
     spec:
       containers:
-      - image: doijoy46/csye6225ftontend:v4
+      - image: doijoy46/csye6225ftontend:v5
         name: container1
         env:
         - name: REACT_APP_baseAPIURL
-          value: "http://a758a8f4a5e754e5395d78e2cfc4240b-1869224041.us-west-2.elb.amazonaws.com:5000"
+          value: "http://ae3134a112e5a43e09fa6de4d6d276d7-60221437.us-west-2.elb.amazonaws.com:5000"
         command: ["npm","start"]
         imagePullPolicy: Always
         ports:

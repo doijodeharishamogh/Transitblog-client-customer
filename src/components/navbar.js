@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 function navbar() {
   return (
     <nav>
-      <div className='nav-wrapper red darken-3'>
+      <div className='nav-wrapper purple darken-3'>
         <a href='/' className='brand-logo center'>
           <i className='large material-icons'>flight</i>
           <span>Transit-Blog</span>
@@ -14,16 +14,10 @@ function navbar() {
             <Link to='/'>Blogs</Link>
           </li>
           <li>
-            <Link to='/secret'>Secret</Link>
-          </li>
-          <li>
             <Link to='/login'>Login</Link>
           </li>
           <li>
             <Link to='/register'>Register</Link>
-          </li>
-          <li>
-            <Link to='/about'>About</Link>
           </li>
         </ul>
       </div>

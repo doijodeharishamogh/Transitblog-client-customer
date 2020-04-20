@@ -56,7 +56,7 @@ export class Comments extends Component {
             <div className='card-content'>
               <span className='card-title'>{comment.name}</span>
               <button
-                className='btn-floating halfway-fab waves-effect waves-light red'
+                className='btn-floating halfway-fab waves-effect waves-light purple'
                 onClick={() => this.delete(comment._id)}
               >
                 <i className='material-icons'>delete</i>

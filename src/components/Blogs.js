@@ -57,7 +57,7 @@ export class Blogs extends Component {
               <Link
                 // to={`/comment/${post._id}`}
                 className='btn'
-                style={{ backgroundColor: 'red' }}
+                style={{ backgroundColor: 'purple' }}
                 to={{
                   pathname: `/comment/${post._id}`,
                   state: {
@@ -69,7 +69,7 @@ export class Blogs extends Component {
               </Link>
 
               <button
-                className='btn-floating halfway-fab waves-effect waves-light red'
+                className='btn-floating halfway-fab waves-effect waves-light purple'
                 onClick={() => this.delete(post._id)}
               >
                 <i className='material-icons'>delete</i>
