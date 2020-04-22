@@ -13,11 +13,11 @@ spec:
         app: todo-client-app
     spec:
       containers:
-      - image: doijoy46/csye6225ftontend:v5
+      - image: docker pull raymix11/todo-client-kubernetes-app:latest
         name: container1
         env:
         - name: REACT_APP_baseAPIURL
-          value: "http://ae3134a112e5a43e09fa6de4d6d276d7-60221437.us-west-2.elb.amazonaws.com:5000"
+          value: "http://a66bdd7f09ac24de186ac36f3f86b3d7-1210016368.us-west-2.elb.amazonaws.com:5000"
         command: ["npm","start"]
         imagePullPolicy: Always
         ports:
